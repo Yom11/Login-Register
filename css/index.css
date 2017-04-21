@@ -1,0 +1,18 @@
+#test{
+    margin-left: 315px;
+    margin-top: 20px;
+    width: 700px;
+    background-color: lightblue;
+    border-radius: 5px;
+}
+
+.form-horizontal{
+	margin-top: 20px;
+    /*margin-left: 70px;*/
+}
+
+.errors{
+    font-style: bold;
+    color: red;
+    font-size: 15px;
+}
