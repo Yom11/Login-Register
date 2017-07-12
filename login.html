@@ -4,39 +4,17 @@
 		<title>Login/Register System</title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/index.css">
+		<link rel="stylesheet" href="css/indexxx.css">
 	</head>
 	<body>
-	<?php include 'php/signup.php'; ?>
-
-	<nav class="navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="index.html">Login/Register</a>
-			</div>
-			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-log-out"></span> User <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-	  					<li><a href="index.html">Logout</a></li>
-					</ul>
-				</li>
-			</ul> 
-		</div>
-	</nav>
-
-	<div class="container" id="test">
+	<?php include 'includes/navbar.html'; ?>
+		<div class="container" id="test">
 		<h2 style="text-align: center;">Login Form</h2>
-			<form class="form-horizontal" name="signup" method="POST">
-				<div class="form-group">
-					<label class="control-label col-sm-3" for="fullName">Full Name:</label>
-					<div class="col-sm-7">
-						<input type="text" class="form-control" id="fullName" name="fullName" placeholder="eg. Jerome Estella">
-						<span id="sFullName" class="errors"></span>
-					</div>
-				</div>
-
+			<form class="form-horizontal" name="signup" id="signup" action="" method="POST">
+			<div class="success"></div>
 					<div class="form-group">
-						<label class="control-label col-sm-3" for="userName">Username:</label>
+						<label class="control-label col-sm-3" for="userName">Username:</label><span class="asterisk">*</span>
+
 						<div class="col-sm-7">
 							<input type="text" class="form-control" id="userName" name="userName" placeholder="eg. Yomskiee">
 							<span id="sUserName" class="errors"></span>
@@ -44,40 +22,25 @@
 					</div>
 
 						<div class="form-group">
-							<label class="control-label col-sm-3" for="emailAdd">Email Address:</label>
+							<label class="control-label col-sm-3" for="password">Password:</label><span class="asterisk">*</span>
+
 							<div class="col-sm-7">
-								<input type="email" class="form-control" id="emailAdd" name="emailAdd" placeholder="eg. Jerome.Estella@yahoo.com">
-								<span id="sEmailAdd" class="errors"></span>
+								<input type="password" class="form-control" id="password" name="password" placeholder="************">
+								<span id="sPw" class="errors"></span>
 							</div>
 						</div>
 
 							<div class="form-group">
-								<label class="control-label col-sm-3" for="password">Password:</label>
-								<div class="col-sm-7">
-									<input type="password" class="form-control" id="password" name="password" placeholder="************">
-									<span id="sPw" class="errors"></span>
+								<div class="col-sm-offset-3 col-sm-10">
+									<button type="button" class="btn btn-default" id="create" name="create">Login</button>
 								</div>
 							</div>
-
-								<div class="form-group">
-									<label class="control-label col-sm-3" for="cPassword">Confirm Password:</label>
-									<div class="col-sm-7">
-										<input type="password" class="form-control" id="cPassword" name="cPassword" placeholder="************">
-										<span id="sCpw" class="errors"></span>
-									</div>
-								</div>
-
-									<div class="form-group">
-										<div class="col-sm-offset-3 col-sm-10">
-											<button type="submit" class="btn btn-default" id="create" name="create">Submit</button>
-										</div>
-									</div>
 			</form>							
 		</div>
-								
+
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="js/signUpValidation.js"></script>	
-	</script> -->
+	<script type="text/javascript" src="js/login.js"></script>
 	</body>
 </html>

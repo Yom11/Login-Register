@@ -24,13 +24,19 @@
 
 .success{
     padding: 8px 8px;
-    border: 1px solid #db1a25;
+    /*border: 1px solid black;*/
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     margin: 10px 0px;
-    color: #db1a25;
-    background: #ffd0d0;
+    color: black;
+    background: #7ae27a;;
     text-align: center;
-    height: 100px;
+    height: 40px;
+    width: 500px;
+    margin-left: 71px;
+}
+
+.hide{
+    display:none;
 }

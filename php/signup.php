@@ -1,14 +1,16 @@
 <?php
 include 'connectDB.php';
-$errors=array();
 
-//validate users input in server-side
+$errors=array();
+// $conn = mysqli_connect('localhost', 'root', '', 'practiceDB');
+
+// server side validation
 if(isset($_POST['create'])){
-	$fName = $_POST['fullName'];
-	$uName = $_POST['userName'];
-	$email = $_POST['emailAdd'];
-	$pw = $_POST['password'];
-	$cpw = $_POST['cPassword'];
+    $fName = $_POST['fullName'];
+    $uName = $_POST['userName'];
+    $email = $_POST['emailAdd'];
+    $pw = $_POST['password'];
+    $cpw = $_POST['cPassword'];
 
     if(empty($fName)){
         $errors['fname']="Invalid";
@@ -43,28 +45,28 @@ if(isset($_POST['create'])){
 
 
 try{
-	//if there is no errors proceed to inserting data in database
-	if (count($errors) == 0){
-		if(isset($_POST['create'])){
-			$fName = $_POST['fullName'];
-			$uName = $_POST['userName'];
-			$email = $_POST['emailAdd'];
-			$pw = $_POST['password'];
+    //if there is no errors proceed to inserting data in database
+    if (count($errors) == 0){
+        if($_POST['fName']){
+            $fName = $_POST['fName'];
+            $uName = $_POST['uName'];
+            $email = $_POST['email'];
+            $pw = md5($_POST['pw']);
 
-			$pw = sha1($_POST['password']);
+            // $pw = sha1($_POST['password']);
 
-			$stmt = $conn->prepare("INSERT INTO user_tbl (fullName, Username, emailAddress, Password) VALUES (:fName, :uName, :email, :pw)");
-			$stmt->bindParam(":fName", $fName);
-			$stmt->bindParam(":uName", $uName);
-			$stmt->bindParam(":email", $email);
-			$stmt->bindParam(":pw", $pw);
-			$stmt->execute();
-		}
-	}
+            $stmt = $conn->prepare("INSERT INTO user_tbl (fullName, Username, emailAddress, Password) VALUES (:fName, :uName, :email, :pw)");
+            $stmt->bindParam(":fName", $fName);
+            $stmt->bindParam(":uName", $uName);
+            $stmt->bindParam(":email", $email);
+            $stmt->bindParam(":pw", $pw);
+            $stmt->execute();
+            echo "You've created your account!";
+        }
+    }
 }catch(PDOException $e){
-	echo "Failed to create " . $e->getMessage();
+    echo "Failed to create " . $e->getMessage();
 }
-	
 $conn = null;
 ?>
 
